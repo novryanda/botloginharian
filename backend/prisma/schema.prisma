@@ -1,0 +1,45 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Account {
+  id        Int         @id @default(autoincrement())
+  username  String
+  password  String
+  label     String?
+  isActive  Boolean     @default(true)
+  latitude  Float?      @default(-6.2088)
+  longitude Float?      @default(106.8456)
+  city      String?     @default("Jakarta")
+  proxyUrl  String?
+  createdAt DateTime    @default(now()) @map("created_at")
+  updatedAt DateTime    @updatedAt @map("updated_at")
+  logs      WorkerLog[]
+
+  @@map("accounts")
+}
+
+model WorkerLog {
+  id         Int       @id @default(autoincrement())
+  accountId  Int       @map("account_id")
+  account    Account   @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  status     String
+  message    String?
+  ipAddress  String?   @map("ip_address")
+  startedAt  DateTime? @map("started_at")
+  finishedAt DateTime? @map("finished_at")
+  createdAt  DateTime  @default(now()) @map("created_at")
+
+  @@map("worker_logs")
+}
+
+model AppSetting {
+  key   String @id
+  value String
+
+  @@map("app_settings")
+}

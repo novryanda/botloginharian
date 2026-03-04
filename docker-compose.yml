@@ -1,0 +1,60 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - WARP_POOL_SIZE=10
+      - USE_DOCKER_NETWORK=true
+    depends_on:
+      - redis
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: always
+
+  redis:
+    image: redis:alpine
+    restart: always
+
+  warp-pool-1:
+    image: caomingjun/warp
+    restart: always
+  warp-pool-2:
+    image: caomingjun/warp
+    restart: always
+  warp-pool-3:
+    image: caomingjun/warp
+    restart: always
+  warp-pool-4:
+    image: caomingjun/warp
+    restart: always
+  warp-pool-5:
+    image: caomingjun/warp
+    restart: always
+  warp-pool-6:
+    image: caomingjun/warp
+    restart: always
+  warp-pool-7:
+    image: caomingjun/warp
+    restart: always
+  warp-pool-8:
+    image: caomingjun/warp
+    restart: always
+  warp-pool-9:
+    image: caomingjun/warp
+    restart: always
+  warp-pool-10:
+    image: caomingjun/warp
+    restart: always
+
+networks:
+  default:
+    name: dokploy-network
+    external: true

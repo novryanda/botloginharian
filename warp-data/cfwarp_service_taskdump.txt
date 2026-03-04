@@ -1,0 +1,50 @@
+2026-03-04T05:47:55.125Z DEBUG task-dump: Dumping task state missed_ticks=5
+2026-03-04T05:47:55.601Z DEBUG task-dump: Runtime metrics: Some(
+    RuntimeMetrics {
+        workers_count: 12,
+        total_park_count: 29448,
+        max_park_count: 7631,
+        min_park_count: 0,
+        total_busy_duration: 25.525883599s,
+        max_busy_duration: 7.15632968s,
+        min_busy_duration: 0ns,
+        global_queue_depth: 0,
+        elapsed: 871.661894285s,
+    },
+)
+2026-03-04T05:47:59.276Z DEBUG task-dump: ╼ actor_configuration::handler::ConfigurationActorLoop::run::{{closure}} at actors/actor-configuration/src/handler.rs:19:5
+╼ <actor_connectivity::ConnectivityActor as actor_framework::actor::ActorInitWithArgs>::init_with_args::{{closure}} at actors/actor-connectivity/src/lib.rs:47:34
+  └╼ actor_connectivity::connectivity::ConnectivityHandler::run<network_info::linux::power_notifier::PowerNotifier, network_info::linux::route_monitor::RouteMonitor, network_info::linux::change_notifier::ChangeNotifier, <actor_connectivity::ConnectivityActor as actor_framework::actor::ActorInitWithArgs>::init_with_args::{{closure}}::{{closure}}::{{closure}}>::{{closure}} at actors/actor-connectivity/src/connectivity.rs:40:5
+╼ actor_registration_verifier::actor::RegistrationVerifierLoop::run::{{closure}} at actors/actor-registration-verifier/src/actor.rs:66:5
+╼ warp_connection::tunnel::WarpTunnel::start_tunnel_processing<warp_edge::h3_tun::MasqueTunnel>::{{closure}}::{{closure}}::{{closure}} at warp-connection/src/tunnel/mod.rs:655:13
+╼ warp::warp_service::notify_ipc_clients_on_registration_change::{{closure}} at warp/src/warp_service.rs:2959:1
+╼ dns_proxy::proxy::DnsProxy<hickory_resolver::name_server::connection_provider::GenericConnection, hickory_resolver::name_server::connection_provider::GenericConnector<hickory_proto::runtime::tokio_runtime::TokioRuntimeProvider>, warp_connection::dns::proxying_dns::ProxyingDns::connect::{{closure}}::{{closure}}::{{closure}}, dns_proxy::health_tracker::NoopHealthTracker>::start_fallback_resolver_update_task at dns-proxy/src/proxy.rs:546:22
+╼ warp::warp_service::WarpService::main_loop<firewall::engine::FirewallEngine::engine<firewall::linux::Firewall>::{{closure}}>::{{closure}}::{{closure}}::{{closure}} at warp/src/warp_service.rs:771:13
+╼ actor_alternate_network::actor::AlternateNetworksLoop::run::{{closure}} at actors/actor-alternate-network/src/actor.rs:105:5
+╼ warp::warp_service::WarpService::start::{{closure}} at warp/src/warp_service.rs:514:5
+  └╼ warp::warp_service::WarpService::main_loop<firewall::engine::FirewallEngine::engine<firewall::linux::Firewall>::{{closure}}>::{{closure}} at warp/src/warp_service.rs:738:5
+     └╼ <warp_connection::controller::WarpConnectionControllerInner<warp_connection::connection::WarpConnection> as warp_connection::controller::WarpConnectionControllerInterface<warp_connection::connection::WarpConnection>>::drive_future::{{closure}} at warp-connection/src/controller.rs:247:5
+        └╼ warp_connection::connection::WarpConnection::get_next_task_map_error::{{closure}} at warp-connection/src/connection.rs:739:5
+           └╼ warp_connection::connection::WarpConnection::join_next::{{closure}} at warp-connection/src/connection.rs:358:5
+╼ warp::warp_service::WarpService::main_loop<firewall::engine::FirewallEngine::engine<firewall::linux::Firewall>::{{closure}}>::{{closure}}::{{closure}}::{{closure}} at warp/src/warp_service.rs:763:13
+  └╼ firewall::engine::FirewallEngine::engine<firewall::linux::Firewall>::{{closure}} at firewall/src/engine.rs:367:5
+╼ warp::warp_service::periodic::structured_log_loop::{{closure}} at warp/src/warp_service/periodic.rs:23:1
+╼ warp::network_diagnostics::collect_network_diagnostics::{{closure}} at warp/src/network_diagnostics.rs:29:1
+  └╼ warp::network_diagnostics::collect_network_diagnostics_loop::{{closure}} at warp/src/network_diagnostics.rs:52:1
+╼ warp_connection::dns::proxying_dns::ProxyingDns::run_dns_stats::{{closure}} at warp-connection/src/dns/proxying_dns.rs:989:5
+╼ warp_connection::dns::proxying_dns::ProxyingDns::connect_inner<warp_connection::dns::proxying_dns::ProxyingDns::connect::{{closure}}::{{closure}}::{{closure}}>::{{closure}}::{{closure}} at warp-connection/src/dns/proxying_dns.rs:755:31
+  └╼ warp_dns::serve_dns<warp_connection::dns::proxying_dns::ProxyingDns::connect::{{closure}}::{{closure}}::{{closure}}, warp_dns::jwt::AccessJwtCache>::{{closure}} at warp-dns/src/lib.rs:152:1
+     └╼ dns_proxy::proxy::DnsProxy<hickory_resolver::name_server::connection_provider::GenericConnection, hickory_resolver::name_server::connection_provider::GenericConnector<hickory_proto::runtime::tokio_runtime::TokioRuntimeProvider>, warp_connection::dns::proxying_dns::ProxyingDns::connect::{{closure}}::{{closure}}::{{closure}}, dns_proxy::health_tracker::NoopHealthTracker>::serve_tokio::{{closure}} at dns-proxy/src/proxy.rs:512:5
+╼ actor_emergency_disconnect::handler::EmergencyDisconnectActorLoop::run<actor_emergency_disconnect::checks::HttpsExternalEmergencySignalChecker>::{{closure}} at actors/actor-emergency-disconnect/src/handler.rs:115:5
+╼ warp::notification::notifications_loop::{{closure}} at warp/src/notification/mod.rs:114:1
+  └╼ warp::notification::connect::{{closure}} at warp/src/notification/mod.rs:141:1
+╼ warp_connection::tunnel::WarpTunnel::start_tunnel_processing<warp_edge::h3_tun::MasqueTunnel>::{{closure}}::{{closure}}::{{closure}} at warp-connection/src/tunnel/mod.rs:716:13
+  └┈ [POLLING]
+╼ warp::warp_service::extract_account::{{closure}} at warp/src/warp_service.rs:2976:1
+╼ warp::warp_service::actor_compat::send_updates::{{closure}} at warp/src/warp_service/actor_compat.rs:425:1
+╼ warp::warp_service::ipc_loop::launch_ipc_loop::{{closure}} at warp/src/warp_service/ipc_loop.rs:34:1
+╼ warp_settings::manager::WarpSettingsManager::new::{{closure}} at warp-settings/src/manager.rs:86:22
+  └╼ warp_settings::manager::LayerManager::run::{{closure}} at warp-settings/src/manager.rs:1098:5
+╼ actor_main_loop_compat::handler::MainLoopCompatHandler::run::{{closure}} at actors/actor-main-loop-compat/src/handler.rs:34:5
+╼ actor_root_ca::handler::RootCaActorLoop::run::{{closure}} at actors/actor-root-ca/src/handler.rs:33:5
+
