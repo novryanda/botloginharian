@@ -31,33 +31,93 @@ services:
   warp-pool-1:
     image: caomingjun/warp
     restart: always
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    environment:
+      - REGISTER_WHEN_MISSING_DEVICE_ID=true
   warp-pool-2:
     image: caomingjun/warp
     restart: always
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    environment:
+      - REGISTER_WHEN_MISSING_DEVICE_ID=true
   warp-pool-3:
     image: caomingjun/warp
     restart: always
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    environment:
+      - REGISTER_WHEN_MISSING_DEVICE_ID=true
   warp-pool-4:
     image: caomingjun/warp
     restart: always
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    environment:
+      - REGISTER_WHEN_MISSING_DEVICE_ID=true
   warp-pool-5:
     image: caomingjun/warp
     restart: always
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    environment:
+      - REGISTER_WHEN_MISSING_DEVICE_ID=true
   warp-pool-6:
     image: caomingjun/warp
     restart: always
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    environment:
+      - REGISTER_WHEN_MISSING_DEVICE_ID=true
   warp-pool-7:
     image: caomingjun/warp
     restart: always
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    environment:
+      - REGISTER_WHEN_MISSING_DEVICE_ID=true
   warp-pool-8:
     image: caomingjun/warp
     restart: always
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    environment:
+      - REGISTER_WHEN_MISSING_DEVICE_ID=true
   warp-pool-9:
     image: caomingjun/warp
     restart: always
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    environment:
+      - REGISTER_WHEN_MISSING_DEVICE_ID=true
   warp-pool-10:
     image: caomingjun/warp
     restart: always
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    environment:
+      - REGISTER_WHEN_MISSING_DEVICE_ID=true
 
 networks:
   default:
