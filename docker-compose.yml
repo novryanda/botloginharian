@@ -4,7 +4,10 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
     environment:
+      - DOCKER_HOST=unix:///var/run/docker.sock
       - DATABASE_URL=${DATABASE_URL}
       - REDIS_HOST=redis
       - REDIS_PORT=6379

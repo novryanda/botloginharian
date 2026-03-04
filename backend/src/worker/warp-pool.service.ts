@@ -74,6 +74,8 @@ export class WarpPoolService implements OnModuleInit {
                 `[Pool] Checkout slot ${slot.id} (${slot.url}) → job ${jobId}`,
                 { context: 'WarpPool' },
             );
+            // Add jitter (1-5s) to help Cloudflare assign different IPs
+            await this.sleep(1000 + Math.random() * 4000);
             return slot.url;
         }
 
@@ -147,6 +149,8 @@ export class WarpPoolService implements OnModuleInit {
 
     private async recycleInBackground(slot: WarpSlot): Promise<void> {
         try {
+            // Add jitter (0-10s) to avoid simultaneous restarts
+            await this.sleep(Math.random() * 10000);
             await execAsync(`docker restart ${slot.containerName}`);
             this.logger.info(
                 `[Pool] Container ${slot.containerName} restarted, waiting for ready...`,
